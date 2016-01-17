@@ -2,21 +2,22 @@
 
 ;CREAR LISTA DE NÚMEROS ALEATORIOS
 
-;ESTE É MÁIS RÁPIDO QUE O ANTERIOR
-
-(define rango_random 3333333333)
-(define num_elementos_lista 1000000)
+(define rango_random 50)
+(define num_elementos_lista 20)
 
 (define lista_entrada
   (map (lambda (x) (random rango_random))
        (make-list num_elementos_lista 0)))
 
-;DEFINIMOS A FUNCIÓN ENCARGADA DE QUITAR ELEMENTOS ÚNICOS DUNHA LISTA
+;DEFINIMOS A FUNCIÓN ENCARGADA DE MOSTRAR OS ELEMENTOS REPETIDOS DA LISTA
 
 (define (elementos_iguales lista)
-  (define d (make-hash))
-  (map (lambda(x) (hash-update! d x add1 0)) lista)
-  (filter (lambda(z) (> (hash-ref d z) 1)) lista)
-  )
+    (define e (make-hasheq))
+    (map (lambda(x) (hash-update! e x add1 0)) lista)
+    (filter (lambda(z) (> (hash-ref e z) 1)) lista)
+    )
 
+(display lista_entrada)
+(newline)
 (elementos_iguales lista_entrada)
+
