@@ -1,9 +1,8 @@
 #lang racket
 
-;num + num -> lista de números aleatorios
+;num + num -> vector de números aleatorios
 (define (lista_entrada rang num)
-  (for/list ([i (in-range num)]) (random rang)))
-
+  (build-list num (lambda(x) (random rang))))
 
 ;list -> lista de números repetidos
 (define (elementos_iguales lista)
@@ -12,4 +11,7 @@
   (filter (lambda(z) (> (hash-ref d z) 1)) lista)
   )
 
-(elementos_iguales (lista_entrada 100 100))
+(define v (lista_entrada 20 20))
+
+(displayln v)
+(elementos_iguales v)
