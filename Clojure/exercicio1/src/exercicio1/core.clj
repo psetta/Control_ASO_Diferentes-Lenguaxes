@@ -1,10 +1,10 @@
 (ns exercicio1.core
   (:gen-class))
 
- ;(def lista_entrada [1 2 3 4 5 2 4 4 6])
- (def lista_entrada (repeatedly 1000000 #(rand-int 999999999)))
+ (def lista_entrada [1 2 3 4 5 2 4 4 6])
+ ;(def lista_entrada (repeatedly 10 #(rand-int 9)))
 
- (defn actualizar_dict [dict, lista]
+ (defn actualizar_dict [dict lista]
  		(if (empty? lista)
  				dict
  				(recur 
@@ -17,11 +17,10 @@
  											list))
  		(filter 
  			(fn [x] (> (get dict x) 1)) 
- 			list)
- )
+ 			list))
 
 (defn -main
   	[]
-  	;(println "lista_entrada:" lista_entrada)
+  	(println "lista_entrada:" lista_entrada)
   	(println "elementos_coincidentes:" (elementos_coincidentes lista_entrada))
   	)
